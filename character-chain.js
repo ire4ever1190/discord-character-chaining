@@ -1,10 +1,14 @@
 /**
- * Required Libraries
+ * Required libraries
  */
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
 
+
+/**
+ * Declaring variables
+ */
 let chainNum = undefined;
 let chainStr = undefined;
 let chainMsg = undefined;
@@ -26,6 +30,7 @@ function readChainNum() {
         chainNum = Number(data);
     });
 }
+
 readChainNum();
 
 
@@ -64,7 +69,8 @@ client.on('ready', () => {
  * file to contain the new number.
  * 
  * Else, delete the incorrect chained message and DM the user telling
- * them the correct number of chained characters.
+ * them the correct number of chained characters and showing them a
+ * preview of the correct chained message.
  */
 client.on('message', async message => {
 
