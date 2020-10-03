@@ -63,9 +63,9 @@ You're finished creating the bot and configuring the code, now it's time to **AC
 
   - Download and install [node.js](https://nodejs.org/en/download/).
 
-  - If you're in an IDE with an intigrated terminal, simply open a new terminal and type: ```node character-chain.js```
+  - If you're in an IDE with an intigrated terminal, simply open a new terminal and type: ```node install``` and subsequently ```node character-chain.js```
 
-  - If you're not using an IDE, open the OS's terminal app and type: ```cd path/to/the/bot/```. After you're in the correct directory, type: ```node character-chain.js```.
+  - If you're not using an IDE, open the OS's terminal app and type: ```cd path/to/the/bot/```. After you're in the correct directory, type: ```node install``` and subsequently ```node character-chain.js```.
 
 If you did everything correctly, the terminal should output:
 ```
