@@ -90,15 +90,16 @@ client.on('message', async message => {
 
     } else {
 
-        if (message.system) return;
-
+        if (message.channel.name === 'general' && message.system === false) {
         message.channel.bulkDelete(1);
-
-        if (message.author.bot) return;
+        }
 
         else {
-            await message.author.createDM();
-            await message.author.dmChannel.send(`Don't ruin the chain!!! The next number of ${chainStr}'s is ${chainNum}.` + "\n" + `(${chainMsg})`);
-        }
+            if (message.author.bot) return;
+
+            else {
+                await message.author.createDM();
+                await message.author.dmChannel.send(`Don't ruin the chain!!! The next number of ${chainStr}'s is ${chainNum}.` + "\n" + `(${chainMsg})`);    
+        }}
     }
 });
