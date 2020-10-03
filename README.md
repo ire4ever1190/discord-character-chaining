@@ -36,7 +36,7 @@ Assuming you've already downloaded the files, (download them now if you haven't!
 Note: Make sure that you LEAVE THE QUOTES surrounding your symbol or phrase. |
 ---------------------------------------------------------------------- |
 
-  - On line 77 in the "if" where you see ```message.channel.name === 'general'```, change 'general' to the name of the channel that your chain is located.
+  - On line 77 and line 93 in the "if" where you see ```message.channel.name === 'general'```, change 'general' to the name of the channel that your chain is located.
  
 #### Note: Do not include the '#' at the beginning of your channel's name in the code.
 Good Name | Bad Name
@@ -63,9 +63,9 @@ You're finished creating the bot and configuring the code, now it's time to **AC
 
   - Download and install [node.js](https://nodejs.org/en/download/).
 
-  - If you're in an IDE with an intigrated terminal, simply open a new terminal and type: ```node character-chain.js```
+  - If you're in an IDE with an intigrated terminal, simply open a new terminal and type: ```node install``` and subsequently ```node character-chain.js```
 
-  - If you're not using an IDE, open the OS's terminal app and type: ```cd path/to/the/bot/```. After you're in the correct directory, type: ```node character-chain.js```.
+  - If you're not using an IDE, open the OS's terminal app and type: ```cd path/to/the/bot/```. After you're in the correct directory, type: ```node install``` and subsequently ```node character-chain.js```.
 
 If you did everything correctly, the terminal should output:
 ```
