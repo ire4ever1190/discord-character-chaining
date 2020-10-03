@@ -1,0 +1,23 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "A simple Discord bot that only allows \"chained messages\" in a desired channel.",
+  "main": "character-chain.js",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FSV-Venom/discord-character-chaining.git"
+  },
+  "author": "FSV_Venom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FSV-Venom/discord-character-chaining/issues"
+  },
+  "homepage": "https://github.com/FSV-Venom/discord-character-chaining#readme"
+}
