@@ -97,7 +97,7 @@ client.on('message', async message => {
         else {
             if (message.author.bot) return;
 
-            else {
+            else if (message.channel.name === 'general') {
                 await message.author.createDM();
                 await message.author.dmChannel.send(`Don't ruin the chain!!! The next number of ${chainStr}'s is ${chainNum}.` + "\n" + `(${chainMsg})`);    
         }}
