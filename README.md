@@ -11,7 +11,7 @@ Then another person comes along and 1-up's that person's two with three, and the
 ### But, then some *idiot* comes along and ruins your fun typing something different forcing everyone to start over.
 
 Well, if you are such an individual, you've come to the right place, because this Discord bot **WILL NOT LET YOU**
-~~(or your dumb friend)~~ type **anything** besides the next quantity of your symbol or phrase!
+(or your dumb friend) type **anything** besides the next quantity of your symbol or phrase!
 
 
 # Setup
