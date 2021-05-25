@@ -29,28 +29,17 @@ Although, it is not that complicated.
 
 ## Configuring the Code
 
-Assuming you've already downloaded the files, (download them now if you haven't!) open the .zip folder, unzip it, and open **character-chain.js**
+Assuming you've already downloaded the files, (download them now if you haven't!) open the .zip folder, unzip it, and open **config.txt**, you should see four lines.
 
-  - On line 45 (as of 9/30/2020) you will see the chainStr variable, change the '?' that is inside of the quotes to whatever symbol or phrase you want to be chained.
-
-Note: Make sure that you LEAVE THE QUOTES surrounding your symbol or phrase. |
----------------------------------------------------------------------- |
-
-  - On line 77 and line 93 in the "if" where you see ```message.channel.name === 'general'```, change 'general' to the name of the channel that your chain is located.
- 
-#### Note: Do not include the '#' at the beginning of your channel's name in the code.
+  - The first line is your chain's number of repititions. Set it accordingly.
+If you're starting a new chain, set this number to one. Everytime the correct chain message is sent, the bot will add one repitition to config.txt, so there is no need to change config.txt after it has been set (unless you're creating a new chain). 
+  - The second line is the string of characters that you're repeating in your chain. This can be anything from a single character to a poem; it doesn't matter.
+  - The third line is the text channel in your Discord server that you want to keep the chain inside.
+#### Note: Do not include the '#' at the beginning of your channel's name.
 Good Name | Bad Name
------|----
-```message.channel.name === 'chain-spam'``` | ```message.channel.name === '#chain-spam'```
-
-Next, open chainNum.txt. This is the file that stores the number of times your symbol or phrase should be repeated.
-
-  - Set the number in chainNum.txt to the number of repititions that your chain is currently on.
-If you're starting a new chain, set this number to one. Everytime the correct chain message is sent, the bot will add one to token.txt, so there is no need to change chainNum.txt after it has been set (unless you're creating a new chain).
-
-The last step is inserting your Discord bot's token into token.txt.
-
-  - Find your bot on the [Discord Developer Portal](https://discord.com/developers/applications), and make sure that you're on the "Bot" tab. Directly below the bot's username, you will see the bot's token. Copy the token and paste it into token.txt in the bot's directory.
+-----|-----
+chain-spam | #chain-spam
+  - The fourth and final line is your Discord bot's token. Find your bot on the [Discord Developer Portal](https://discord.com/developers/applications), and make sure that you're on the "Bot" tab. Directly below the bot's username, you will see the bot's token. Copy the token and paste it onto the fourth line of config.txt
 
 WARNING: DO NOT SHARE YOUR TOKEN WITH ANYONE, AS ANYONE WITH THE BOT'S TOKEN CAN FORCE THE BOT TO EXECUTE THEIR OWN CODE. |
 ------------------------------------------------------------------------------------------------------------------------- |
@@ -69,14 +58,12 @@ You're finished creating the bot and configuring the code, now it's time to **AC
 
 If you did everything correctly, the terminal should output:
 ```
-chainStr
-chainNum
-chainMsg
+chainStr = your-string
+chainNum = your-number-of-repititions
+chainMsg = your-string-repeated-x-times
+textChannel = your-text-channel
 Success, logged in as: Your-Bot#1234
 ```
-Where 'chainStr' is the symbol or phrase of your choosing. e.g. ?.
-And where 'chainNum' is the number from chainNum.txt e.g. 5.
-And where 'chainMsg' is the preview of the next chain message e.g. ?????.
 
 As people continue the chain, the bot will output this same message, but with updated variables, e.g. 'chainNum' would be 6 instead of 5.
 
