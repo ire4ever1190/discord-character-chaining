@@ -4,34 +4,38 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
+const { send } = require('process');
 
 
 /**
- * Declaring variables
+ * Declaring variables --don't change--
  */
+
 let chainNum = undefined;
 let chainStr = undefined;
 let chainMsg = undefined;
+let textChannel = undefined;
 
 
 /**
- * Reading 'token.txt' and 'chainNum.txt' 
+ * Reading 'config.txt'
  * and outputting its data
  */
-fs.readFile('token.txt', 'utf8', function (err, data) {
-    if (err) throw err;
-    client.login(data);
-});
 
-
-function readChainNum() {
-    fs.readFile('chainNum.txt', 'utf8', function (err, data) {
+function readConfig() {
+    fs.readFile('config.txt', 'utf8', function (err, data) {
         if (err) throw err;
-        chainNum = Number(data);
+        const lines = data.split(/\r?\n/);
+
+        chainNum = Number(lines[0]);
+        chainStr = lines[1];
+        textChannel = lines[2];
+
+        client.login(lines[3]);
     });
 }
 
-readChainNum();
+readConfig();
 
 
 /**
@@ -42,15 +46,16 @@ client.on('ready', () => {
     /**
      * Variable assignment
      */
-    chainStr = '?';
+
     chainMsg = chainStr.repeat(chainNum);
 
     /**
      * Logging all variable information
      */
-    console.log(chainStr);
-    console.log(chainNum);
-    console.log(chainMsg);
+    console.log(`chainStr = ${chainStr}`);
+    console.log(`chainNum = ${chainNum}`);
+    console.log(`chainMsg = ${chainMsg}`);
+    console.log(`textChannel = ${textChannel}`);
 
     /**
      * Logging Discord tag and setting the bot's status
@@ -59,13 +64,14 @@ client.on('ready', () => {
     console.log(`Success, logged in as: ${myName}`);
 
     client.user.setActivity("Long live the chain!");
+
 });
 
 
 
 /**
- * If the correct chained message is sent in the #general channel
- * add one to the 'chainNum' variable and rewrite the 'chainNum.txt'
+ * If the correct chained message is sent in your text channel
+ * add one to the 'chainNum' variable and rewrite the 'config.txt'
  * file to contain the new number.
  * 
  * Else, delete the incorrect chained message and DM the user telling
@@ -74,32 +80,29 @@ client.on('ready', () => {
  */
 client.on('message', async message => {
 
-    if (message.channel.name === 'general' && message.content === chainMsg) {
+    if (message.channel.name === textChannel && message.content === chainMsg) {
         
-        readChainNum();
         chainNum++;
         chainMsg = chainStr.repeat(chainNum);
 
-        fs.writeFile('chainNum.txt', chainNum.toString(), 'utf8', (err) => {
+        fs.writeFile('config.txt', `${chainNum.toString()}\n${chainStr}\n${textChannel}`, 'utf8', (err) => {
             if (err) throw err;
         });
 
-        console.log(chainStr);
-        console.log(chainNum);
-        console.log(chainMsg);
+        console.log(`chainStr = ${chainStr}`);
+        console.log(`chainNum = ${chainNum}`);
+        console.log(`chainMsg = ${chainMsg}`);
 
     } else {
 
-        if (message.channel.name === 'general' && message.system === false) {
+        if (message.channel.name === textChannel && message.system === false) {
         message.channel.bulkDelete(1);
-        }
-
-        else {
+        
             if (message.author.bot) return;
 
-            else if (message.channel.name === 'general') {
+            else {
                 await message.author.createDM();
-                await message.author.dmChannel.send(`Don't ruin the chain!!! The next number of ${chainStr}'s is ${chainNum}.` + "\n" + `(${chainMsg})`);    
+                await message.author.dmChannel.send(`Don't ruin the chain!!! The next number of ${chainStr}'s is ${chainNum}. \n (${chainMsg})`);
         }}
     }
 });
