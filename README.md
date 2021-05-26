@@ -16,7 +16,7 @@ Well, if you are such an individual, you've come to the right place, because thi
 
 # Setup
 
-The setup for this Discord bot will be divided into two steps: [creating the Discord bot](https://github.com/FSV-Venom/discord-character-chaining/new/master?readme=1#creating-the-discord-bot) and [configuring the code](https://github.com/FSV-Venom/discord-character-chaining/new/master?readme=1#configuring-the-code).
+The setup for this Discord bot will be divided into two steps: [creating the Discord bot](https://github.com/FSV-Venom/discord-character-chaining#creating-the-discord-bot) and [configuring the code](https://github.com/FSV-Venom/discord-character-chaining#configuring-the-code).
 
 ## Creating the Discord Bot
 
